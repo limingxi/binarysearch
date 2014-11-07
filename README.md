@@ -4,7 +4,7 @@ Recently I have read a great [post about Binary Search]. In this post, the autho
 
 First of all, binary search is not easy to write. The reason is that the target may or may not be in the given array. If we just want to look for the target and return -1 for not found, it's quite easy. But sometimes it's more complicated. For example, the question [search insertion position] requires us to look for the position we can insert target in. Target is maybe in the array and maybe not. This really makes me headache, there are so many boundary cases to consider. What if the target is smaller than the smallest element in array? What if the target is not in the array?  
 
-As we can see, binary search varies a lot. If you deal with them by the original one from textbook, you are most likely go to the wrong answer. Now let's see where we can modify for binary search:  
+As we can see, binary search varies a lot. If you deal with them by the original one from textbook, you are most likely going to the wrong answer. Now let's see where we can modify for binary search:  
 
 1. 	When to stop: **left>right** or **left>=right**
 2. 	How to choose mid: **left+(right-left)/2** or **right-(right-left)/2**
