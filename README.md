@@ -20,7 +20,7 @@ Based on the post I mentioned above, we choose to:
 3. 	Update left or right to mid. i.e. **left=mid** or **right=mid**
 4. 	initialize: **left=-1** and **right=n**
 
-Yes points 1, 3, 4 are weired. For point 1, why we want to keep looping for **right-left>1**? Actually this means we stop at **right-left==1**. It's tricky here, instead of giving us a single result, it gives us a pair(left,right). Remember we have invariant for our loop, and when loop ends, the invariant should remain true. So either we found the target or not, we know the target is in the range either **(**A[left],A[right]**]** or **[**A[left],A[right]**)**. And this is depend on your choice (most likely you need to choose that based on your question).  
+Yes points 1, 3, 4 are weired. For point 1, why we want to keep looping for **right-left>1**? Actually this means we stop at **right-left==1**. It's tricky here, instead of giving us a single result, it gives us a pair(left,right). Remember we have invariant for our loop, and when loop ends, the invariant should remain true. So either we found the target or not, we know the target is in the range either (A[left],A[right]] or [A[left],A[right]). And this is depend on your choice (most likely you need to choose that based on your question).  
 
 With the knowledge of invariant, point 3 and point 4 are easy to explain. For point 3, we don't use mid+1 or mid-1 because we don't want to kick the target out of the range. For example, we are looking for 8 and A[mid]=7 and A[mid+1]=9. Once we choose left=mid+1, then target&lt;A[left]. For point 4, the target maybe smaller than A[0] or larger then A[n-1]. We can assume A[-1]=INT_MIN and A[n]=INT_MAX which will guarantee the loop invariant in the first place.  
 
