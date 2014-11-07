@@ -24,11 +24,11 @@ Yes points 1, 3, 4 are weired. For point 1, why we want to keep looping for **ri
 
 With the knowledge of invariant, point 3 and point 4 are easy to explain. For point 3, we don't use mid+1 or mid-1 because we don't want to kick the target out of the range. For example, we are looking for 8 and A[mid]=7 and A[mid+1]=9. Once we choose left=mid+1, then target&lt;A[left]. For point 4, the target maybe smaller than A[0] or larger then A[n-1]. We can assume A[-1]=INT_MIN and A[n]=INT_MAX which will guarantee the loop invariant in the first place.  
 
->Tip: one thing to mention here is that mid+1 or mid-1 can make sure you won't loop infinitely. So are we in danger for using **mid** to update left & right? The answer is no, because loop stops at **right-left==1**. Still get lost? Think about when we get an infinite loop: assume when right-left==1  
+>Tip: one thing to mention here is that mid+1 or mid-1 can make sure you won't loop infinitely. So are we in danger for using **mid** to update left & right? The answer is no, because loop stops at **right-left==1**. Still get lost? Think about when we get an infinite loop: assume when right-left==1:  
 >**mid = left+(right-left)/2 = left+0 = left**  
 >Then we assign mid to left, which means nothing changes here. However, our loop will be terminated when right-left==1 :)
 
-Well, maybe you still think it's hard to remember the rules and apply them into real situation is even harder. OK then you just keep in mind one thing: **keep your "target" in A[left] and A[right]!** Sometimes you are finding a specific index, maybe sometimes you are just finding a **gap**, never skip the gap when you updating the left or right and you will be fine.
+Well, maybe you still think it's hard to remember the rules and apply them into real situation is even harder. OK then you just keep in mind one thing: **keep your "target" in A[left] and A[right]!** Sometimes you are finding a specific index, but sometimes you are just finding a **gap**, never skip the gap when you updating the left or right and you will be fine.
 
 
 
