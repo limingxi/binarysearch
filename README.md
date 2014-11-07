@@ -5,18 +5,20 @@ Recently I have read a great [post about Binary Search]. In this post, the autho
 First of all, binary search is not easy to write. The reason is that the target may or may not be in the given array. If we just want to look for the target and return -1 for not found, it's quite easy. But sometimes it's more complicated. For example, the question [search insertion position] requires us to look for the position we can insert target in. Target is maybe in the array and maybe not. This really makes me headache, there are so many boundary cases to consider. What if the target is smaller than the smallest element in array? What if the target is not in the array?  
 
 As we can see, binary search varies a lot. If you deal with them by the original one from textbook, you are most likely go to the wrong answer. Now let's see where we can modify for binary search:  
-1. When to stop: **left&gt;right** or **left&gt;=right**
-2. How to choose mid: **left+(right-left)/2** or **right-(right-left)/2**
-3. How to update left and right: **left=mid+1** or **left=mid** 
-4. How to initialize the left and right: **right=n** or **right=n-1**? 
+
+1. 	When to stop: **left>right** or **left>=right**
+2. 	How to choose mid: **left+(right-left)/2** or **right-(right-left)/2**
+3. 	How to update left and right: **left=mid+1** or **left=mid** 
+4. 	How to initialize the left and right: **right=n** or **right=n-1**? 
 
 There are so many combinations there, which should we choose?  
 
-Based on the post I mentioned above, we choose to:
-1. Keep looping for **right-left>1**
-2. **mid=left+(right-left)/2**
-3. Update left or right to mid. i.e. **left=mid** or **right=mid**
-4. initialize: **left=-1** and **right=n**
+Based on the post I mentioned above, we choose to:  
+
+1. 	Keep looping for **right-left>1**
+2. 	**mid=left+(right-left)/2**
+3. 	Update left or right to mid. i.e. **left=mid** or **right=mid**
+4. 	initialize: **left=-1** and **right=n**
 
 Yes points 1, 3, 4 are weired. For point 1, why we want to keep looping for **right-left>1**? Actually this means we stop at **right-left==1**. It's tricky here, instead of giving us a single result, it gives us a pair(left,right). Remember we have invariant for our loop, and when loop ends, the invariant should remain true. So either we found the target or not, we know the target is in the range either **(**A[left],A[right]**]** or **[**A[left],A[right]**)**. And this is depend on your choice (most likely you need to choose that based on your question).  
 
